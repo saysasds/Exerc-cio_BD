@@ -226,7 +226,7 @@ ALTER TABLE ONLY public.ordem_servico
 -- Name: fki_cliente_ordem-_servico; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE INDEX "fki_cliente_ordem-_servico" ON public.ordem_servico USING btree (cliente_cd_cliente);
+CREATE INDEX fki_cliente_ordem_servico ON public.ordem_servico USING btree (cliente_cd_cliente);
 
 
 --
@@ -242,7 +242,7 @@ CREATE INDEX fki_endereco_funcionario ON public.funcionario USING btree (enderec
 -- Name: fki_endereço_cliente; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE INDEX "fki_endereço_cliente" ON public.cliente USING btree (endereco_cd_endereco);
+CREATE INDEX fki_endereco_cliente ON public.cliente USING btree (endereco_cd_endereco);
 
 
 --
