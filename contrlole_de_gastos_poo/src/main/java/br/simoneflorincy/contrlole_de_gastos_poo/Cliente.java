@@ -9,19 +9,64 @@ package br.simoneflorincy.contrlole_de_gastos_poo;
  *
  * @author User
  */
-public class Cliente {
+import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cliente")
+public class Cliente implements Serializable {
+    @Column (name = "cd_cliente")
+   @Id
+   private Integer codCliente;
+   @Column (name = "cod_identificacao") 
+   private Integer codIdentificacao;
+   @Column (name = "ds_email")
+   private String email;
+   @Column (name = "nm_fantasia")
+   private String nomeFantasia;
+   @Column (name = "nm_razaosocial")
+   private String razaoSocial;
+   @Column (name = "tipo_cliente")
+   private String tipoCliente; 
+   @Column 
+   private Character tp_visivel;
+   @Column (name = "endereco_cd_endereco")
+   @OneToOne (targetEntity = Endereco.class, cascade = CascadeType.REMOVE, 
+           fetch = FetchType.EAGER )
+   private Endereco enderecoDoCliente;
+
+
+    /**
+     * @return the codCliente
+     */
+    public Integer getCodCliente() {
+        return codCliente;
+    }
+
+    /**
+     * @param codCliente the codCliente to set
+     */
+    public void setCodCliente(Integer codCliente) {
+        this.codCliente = codCliente;
+    }
 
     /**
      * @return the codIdentificacao
      */
-    public String getCodIdentificacao() {
+    public Integer getCodIdentificacao() {
         return codIdentificacao;
     }
 
     /**
      * @param codIdentificacao the codIdentificacao to set
      */
-    public void setCodIdentificacao(String codIdentificacao) {
+    public void setCodIdentificacao(Integer codIdentificacao) {
         this.codIdentificacao = codIdentificacao;
     }
 
@@ -82,6 +127,20 @@ public class Cliente {
     }
 
     /**
+     * @return the tp_visivel
+     */
+    public Character getTp_visivel() {
+        return tp_visivel;
+    }
+
+    /**
+     * @param tp_visivel the tp_visivel to set
+     */
+    public void setTp_visivel(Character tp_visivel) {
+        this.tp_visivel = tp_visivel;
+    }
+
+    /**
      * @return the enderecoDoCliente
      */
     public Endereco getEnderecoDoCliente() {
@@ -94,11 +153,6 @@ public class Cliente {
     public void setEnderecoDoCliente(Endereco enderecoDoCliente) {
         this.enderecoDoCliente = enderecoDoCliente;
     }
-   private String codIdentificacao;
-   private String email;
-   private String nomeFantasia;
-   private String razaoSocial;
-   private String tipoCliente; 
-   private Endereco enderecoDoCliente;
     
+  
 }

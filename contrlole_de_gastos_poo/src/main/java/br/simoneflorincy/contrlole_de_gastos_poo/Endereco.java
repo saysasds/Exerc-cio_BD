@@ -5,11 +5,58 @@
  */
 package br.simoneflorincy.contrlole_de_gastos_poo;
 
+import java.io.Serializable;
+import javafx.scene.text.Text;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 /**
  *
  * @author User
  */
-public class Endereco {
+@Entity 
+@Table(name = "Endereco")
+public class Endereco implements Serializable {
+    
+    @Column (name = "cd_endereco")
+    @Id
+    private Integer endereco; 
+    @Column (name = "nm_bairro" )
+    private String bairro;
+    @Column (name = "ds_cep")
+    private String cep;
+    @Column (name = "nm_cidade")
+    private String cidade;
+    @Column (name = "ds_complemento")
+    private Text complemento;
+    @Column (name = "nr_casa")
+    private String numero;
+    @Column (name = "nm_rua")
+    private String rua;
+    @Column (name = "telefone1")
+    private String telefone1;
+    @Column (name = "telefone2")
+    private String telefone2;
+
+
+    /**
+     * @return the endereco
+     */
+    public Integer getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(Integer endereco) {
+        this.endereco = endereco;
+    }
 
     /**
      * @return the bairro
@@ -56,14 +103,14 @@ public class Endereco {
     /**
      * @return the complemento
      */
-    public String getComplemento() {
+    public Text getComplemento() {
         return complemento;
     }
 
     /**
      * @param complemento the complemento to set
      */
-    public void setComplemento(String complemento) {
+    public void setComplemento(Text complemento) {
         this.complemento = complemento;
     }
 
@@ -122,12 +169,10 @@ public class Endereco {
     public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
     }
-    private String bairro;
-    private String cep;
-    private String cidade;
-    private String complemento;
-    private String numero;
-    private String rua;
-    private String telefone1;
-    private String telefone2;
+    
 }
+    
+    
+
+
+    
